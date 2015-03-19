@@ -12,7 +12,9 @@ import android.view.ViewGroup;
 import android.os.Build;
 
 /**
- * MainActivity jeej
+ * MainActivity V1
+ *
+ * UHUH
  */
 public class MainActivity extends Activity {
 
