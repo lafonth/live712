@@ -10,6 +10,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * MainActivity V1
@@ -63,7 +69,29 @@ public class MainActivity extends Activity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
+
+            // fake news en attendant de les récupérer depuis sitra
+            String[] forecastArray = {
+                    "news 1 - Bonjour",
+                    "news 2 - Jeej",
+                    "news 3 - Fuuf",
+                    "news 4 - Bonjour",
+                    "news 5 - Jeej",
+                    "news 6 - Fuuf",
+                    "news 7 - Bonjour",
+                    "news 8 - Jeej",
+                    "news 9 - Fuuf"
+            };
+
+            List<String> newsForecast = new ArrayList<String>(Arrays.asList(forecastArray));
+
+            ArrayAdapter<String> newsAdapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item_forecast, R.id.list_item_forecast_textview, newsForecast);
+
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+
+            ListView listView = (ListView) rootView.findViewById(R.id.listview_forecast);
+            listView.setAdapter(newsAdapter);
+
             return rootView;
         }
     }
